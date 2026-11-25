@@ -4,7 +4,7 @@
 |---|---|
 | Mata kuliah | Machine Learning (tugas kelompok) |
 | Versi dokumen | 1.0 |
-| Status | Draft, menunggu konfirmasi sebelum implementasi (Phase 2) |
+| Status | Final, seluruh fase (1–9) selesai dan terdokumentasi |
 | Bahasa data | Bahasa Indonesia |
 
 ---

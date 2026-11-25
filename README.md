@@ -8,6 +8,8 @@ Dokumen acuan:
 
 - `PRD.md` — kebutuhan produk dan kriteria penerimaan
 - `ARCHITECTURE.md` — rancangan teknis dan alur data
+- `LAPORAN.md` — laporan akhir 13 bagian (pendahuluan sampai saran)
+- `notebook/analysis.ipynb` — ringkasan hasil dalam bentuk notebook
 
 ## Status pengerjaan
 
@@ -20,8 +22,8 @@ Dokumen acuan:
 | 5 | Preprocessing (normalisasi, stopword, stemming) | Selesai |
 | 6 | Noise analysis | Selesai |
 | 7 | WordCloud & frekuensi kata | Selesai |
-| 8 | Workflow | Berikutnya |
-| 9 | Dokumentasi akhir | Belum |
+| 8 | Workflow | Selesai |
+| 9 | Dokumentasi akhir | Selesai (`LAPORAN.md` + notebook) |
 
 ## Struktur folder
 
@@ -46,14 +48,19 @@ Dokumen acuan:
 │   └── word_frequency.py   # Phase 7: frekuensi kata per tahap
 ├── visualization/
 │   └── make_wordcloud.py   # Phase 7: 4 WordCloud + bar chart Top 20
+├── workflow/
+│   ├── make_workflow.py    # Phase 8: diagram alur pipeline (PNG)
+│   └── workflow.png
 ├── results/                # PNG WordCloud, bar chart, tabel frekuensi, ringkasan
-├── workflow/               # diagram workflow
-├── notebook/               # analysis.ipynb
+├── notebook/
+│   └── analysis.ipynb      # Phase 9: ringkasan hasil + visualisasi
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
 ├── PRD.md
-└── ARCHITECTURE.md
+├── ARCHITECTURE.md
+├── LAPORAN.md              # Phase 9: laporan akhir 13 bagian
+└── README.md
 ```
 
 ## Prasyarat
@@ -82,8 +89,11 @@ Dokumen acuan:
 
    ```
    YOUTUBE_API_KEY=AIza...key_anda
-   TARGET_COMMENTS=2000
+   TARGET_COMMENTS=3000
    ```
+
+   Target minimum tugas adalah 2.000 komentar; proyek ini memakai 3.000 agar
+   dataset lebih besar dan tetap memenuhi syarat setelah cleaning.
 
 > `.env` sudah masuk `.gitignore`. Jangan pernah menulis API Key di kode, notebook, atau commit.
 
@@ -141,7 +151,7 @@ Kode keluar: `0` target tercapai, `1` kesalahan konfigurasi/API, `2` kuota habis
 
 Edit `config/videos.txt`: satu URL atau Video ID per baris. Baris berawalan `#` diabaikan.
 Format yang didukung: `watch?v=`, `youtu.be/`, `/shorts/`, `/embed/`, `/live/`, atau ID polos.
-Jika total komentar belum mencapai 2.000, aktifkan video cadangan di bagian bawah file
+Jika total komentar belum mencapai target (3.000 pada proyek ini), aktifkan video cadangan di bagian bawah file
 (hapus tanda `#` di awal baris) lalu jalankan ulang perintah scraping.
 
 ### Output
@@ -234,6 +244,27 @@ python visualization/make_wordcloud.py
 Nama file sengaja `make_wordcloud.py`, bukan `wordcloud.py`, agar tidak menimpa
 library `wordcloud` saat proses impor.
 
+Workflow (Phase 8):
+
+```bash
+python workflow/make_workflow.py
+```
+
+Menghasilkan `workflow/workflow.png` (2.400 × 1.500 px): alur scraping → EDA →
+cleaning → preprocessing → noise analysis → frekuensi kata → WordCloud/Top 20 →
+dokumentasi. Angka pada diagram dibaca langsung dari dataset dan file
+konfigurasi, jadi otomatis ikut berubah bila data diperbarui.
+
+Dokumentasi akhir (Phase 9):
+
+- `LAPORAN.md` — laporan 13 bagian: pendahuluan, landasan teori, metodologi,
+  pengumpulan data, EDA, cleaning, preprocessing, noise analysis, frekuensi kata,
+  visualisasi, workflow, pembahasan, serta kesimpulan dan saran. Seluruh angka
+  diambil dari output program dan file di `dataset/` serta `results/`.
+- `notebook/analysis.ipynb` — notebook ringkasan yang membaca dataset dan hasil
+  analisis, lalu menampilkan statistik, tabel Top 20, WordCloud, dan workflow.
+  Notebook tidak melakukan scraping atau stemming ulang.
+
 ## Troubleshooting
 
 | Gejala | Penyebab dan solusi |
@@ -249,4 +280,4 @@ library `wordcloud` saat proses impor.
 - Hanya komentar top-level yang diambil (balasan tidak termasuk), sesuai `ARCHITECTURE.md`.
 - Data bersumber dari komentar publik dan dipakai untuk tujuan akademik.
 - Kuota YouTube Data API v3 gratis 10.000 unit/hari; satu halaman komentar berbiaya 1 unit,
-  sehingga pengumpulan 2.000 komentar hanya membutuhkan sekitar 20 unit.
+  sehingga pengumpulan 3.000 komentar hanya membutuhkan sekitar 30 unit.

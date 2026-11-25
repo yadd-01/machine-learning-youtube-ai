@@ -30,8 +30,8 @@ Catatan: label noise bersifat struktural. Kata informal seperti 'gak',
   Metrik                               Sebelum     Sesudah
   Jumlah komentar                         3000        2686
   Rata-rata kata mentah                   20.3        21.8
-  Total kata informatif                  33292       32338
-  Kosakata informatif                     6645        6451
+  Total kata informatif                  33264       32310
+  Kosakata informatif                     6652        6458
   Rata-rata kata informatif               11.1        12.0
 
 ----------------------------------------------------------------------

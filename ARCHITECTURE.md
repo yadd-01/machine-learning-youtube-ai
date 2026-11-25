@@ -22,7 +22,7 @@ flowchart TD
     B --> G
     D --> G
     E --> G
-    G --> H[wordcloud.py]
+    G --> H[make_wordcloud.py]
     H -->|PNG| I[results/]
     I --> J[Analisis dan Dokumentasi]
     C --> J
@@ -36,7 +36,7 @@ flowchart TD
 | Akuisisi | `scraping/scraping.py` | Mengambil, deduplikasi, dan menyimpan komentar mentah |
 | Pemrosesan | `preprocessing/cleaning.py`, `normalization.py`, `preprocessing.py` | Cleaning dan preprocessing teks |
 | Analisis | `analysis/eda.py`, `noise_analysis.py`, `word_frequency.py` | Statistik, deteksi noise, frekuensi kata |
-| Visualisasi | `visualization/wordcloud.py` | WordCloud dan bar chart |
+| Visualisasi | `visualization/make_wordcloud.py` | WordCloud dan bar chart |
 | Penyimpanan | `dataset/`, `results/` | File CSV dan PNG |
 | Konfigurasi | `.env`, `requirements.txt` | API Key dan dependensi |
 
@@ -76,13 +76,15 @@ PROJECT-ML-YOUTUBE/
 │   ├── wordcloud_noise.png
 │   └── top_20_words.png
 ├── workflow/
+│   ├── make_workflow.py
 │   └── workflow.png
 ├── notebook/
 │   └── analysis.ipynb
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
-└── README.md
+├── README.md
+└── LAPORAN.md
 ```
 
 Catatan penamaan: modul visualisasi akhirnya diberi nama `visualization/make_wordcloud.py` (bukan `wordcloud.py`) agar tidak membayangi library `wordcloud` saat `import wordcloud`. Ini keputusan final Phase 7.
@@ -147,6 +149,19 @@ Fungsi utama (rencana):
 - Parameter: 2400×1500 px, maks 200 kata, hanya kata dengan frekuensi ≥ 2, `random_state=42` agar reproducible
 - Syarat: judul, ukuran jelas, background kontras, data dari dataset nyata
 
+### 4.9 `workflow/make_workflow.py`
+- Input: dataset CSV, file konfigurasi (kamus/stopword/pengecualian), dan tabel frekuensi
+- Proses: membaca angka nyata → Matplotlib (kartu tahap + panah alur) → PNG
+- Output: `workflow/workflow.png` (2400×1500 px)
+- Isi: Phase 2–7 plus dokumentasi Phase 9, dengan input/output dan metrik tiap tahap
+- Prinsip: tidak ada angka hardcode; diagram ikut berubah bila data berubah
+
+### 4.10 `LAPORAN.md` dan `notebook/analysis.ipynb` (Phase 9)
+- `LAPORAN.md`: 13 bagian, dari pendahuluan sampai kesimpulan dan saran; seluruh angka mengacu pada output program
+- `notebook/analysis.ipynb`: membaca dataset dan file ringkasan, menampilkan statistik, Top 20, WordCloud, dan workflow
+- Notebook tidak menjalankan ulang scraping atau stemming; tujuannya menyajikan hasil yang sudah diverifikasi
+- `README.md`: instalasi, pembuatan API key, urutan eksekusi, opsi perintah, dan troubleshooting
+
 ## 5. Aliran Data dan Skema
 
 | Tahap | File | Kolom utama |
@@ -154,7 +169,7 @@ Fungsi utama (rencana):
 | Raw | `raw_comments.csv` | `video_id, comment_id, author, text, published_at, like_count` |
 | Cleaned | `cleaned_comments.csv` | raw + `text_cleaned` |
 | Preprocessed | `preprocessed_comments.csv` | cleaned + `tokens`, `tokens_normalized`, `tokens_no_stopword`, `text_preprocessed` |
-| Noise | `noise_comments.csv` | `comment_id`, `text`, `noise_type` |
+| Noise | `noise_comments.csv` | `comment_id`, `video_id`, `text`, `text_cleaned`, `text_preprocessed`, `noise_type`, `jumlah_label` |
 
 Kunci penghubung antar file: `comment_id`.
 
@@ -194,6 +209,7 @@ python preprocessing/preprocessing.py
 python analysis/noise_analysis.py
 python analysis/word_frequency.py
 python visualization/make_wordcloud.py
+python workflow/make_workflow.py
 ```
 
 Setiap langkah diperiksa hasilnya sebelum melanjutkan ke langkah berikutnya.
