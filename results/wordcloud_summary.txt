@@ -4,12 +4,13 @@ VISUALISASI WORDCLOUD & TOP 20 KATA (PHASE 7)
 Input frekuensi : results\word_frequencies.csv
 Font            : segoeui.ttf
 Parameter       : maks 200 kata, minimal 2x muncul, 2400x1500 px
+Dikecualikan    : allah (hanya dari gambar)
 
 ----------------------------------------------------------------------
 WORDCLOUD KOMENTAR MENTAH
 ----------------------------------------------------------------------
-  Kata unik  : 3.968 (frekuensi >= 2)
-  Total kata : 54.644
+  Kata unik  : 3.967 (frekuensi >= 2)
+  Total kata : 54.594
   File       : results\wordcloud_raw.png
   10 teratas :
      1. ai                2236
@@ -26,8 +27,8 @@ WORDCLOUD KOMENTAR MENTAH
 ----------------------------------------------------------------------
 WORDCLOUD SETELAH CLEANING
 ----------------------------------------------------------------------
-  Kata unik  : 3.947 (frekuensi >= 2)
-  Total kata : 54.286
+  Kata unik  : 3.946 (frekuensi >= 2)
+  Total kata : 54.236
   File       : results\wordcloud_cleaned.png
   10 teratas :
      1. ai                2230
@@ -44,8 +45,8 @@ WORDCLOUD SETELAH CLEANING
 ----------------------------------------------------------------------
 WORDCLOUD SETELAH PREPROCESSING
 ----------------------------------------------------------------------
-  Kata unik  : 2.922 (frekuensi >= 2)
-  Total kata : 29.534
+  Kata unik  : 2.921 (frekuensi >= 2)
+  Total kata : 29.484
   File       : results\wordcloud_preprocessed.png
   10 teratas :
      1. ai                2230

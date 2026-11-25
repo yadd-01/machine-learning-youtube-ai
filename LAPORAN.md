@@ -599,8 +599,9 @@ Kata-kata seperti `benar`, `baik`, dan `tahu` lebih bersifat evaluatif. Kehadira
 | Random state | 42 (reproducible) |
 | Font | Segoe UI |
 | Input | `results/word_frequencies.csv` |
+| Filter visual | `allah` (via `visualization/wordcloud_excludes.txt`); dataset dan tabel frekuensi tetap utuh |
 
-Hanya kata dengan frekuensi minimal 2 yang divisualisasikan. Tujuannya mengurangi kata sekali muncul yang membuat WordCloud ramai tetapi tidak informatif.
+Hanya kata dengan frekuensi minimal 2 yang divisualisasikan. Tujuannya mengurangi kata sekali muncul yang membuat WordCloud ramai tetapi tidak informatif. Kata yang tidak relevan untuk ditonjolkan dapat disembunyikan dari gambar tanpa mengubah data analisis.
 
 ### 10.2 WordCloud data mentah
 

@@ -66,7 +66,8 @@ PROJECT-ML-YOUTUBE/
 │   ├── noise_analysis.py
 │   └── word_frequency.py
 ├── visualization/
-│   └── make_wordcloud.py
+│   ├── make_wordcloud.py
+│   └── wordcloud_excludes.txt
 ├── results/
 │   ├── word_frequencies.csv
 │   ├── top_20_words.csv
@@ -143,10 +144,11 @@ Fungsi utama (rencana):
 - Output: tabel frekuensi per tahap (dipakai `make_wordcloud.py` dan bar chart Top 20)
 
 ### 4.8 `visualization/make_wordcloud.py`
-- Input: frekuensi kata per tahap (`results/word_frequencies.csv`)
+- Input: frekuensi kata per tahap (`results/word_frequencies.csv`), daftar kata yang dikecualikan dari gambar (`visualization/wordcloud_excludes.txt`)
 - Proses: `WordCloud.generate_from_frequencies()` → Matplotlib → simpan PNG
 - Output: `wordcloud_raw.png`, `wordcloud_cleaned.png`, `wordcloud_preprocessed.png`, `wordcloud_noise.png`, `top_20_words.png`
 - Parameter: 2400×1500 px, maks 200 kata, hanya kata dengan frekuensi ≥ 2, `random_state=42` agar reproducible
+- Filter visual: kata di `wordcloud_excludes.txt` tidak digambar, tetapi tetap ada di dataset dan tabel frekuensi
 - Syarat: judul, ukuran jelas, background kontras, data dari dataset nyata
 
 ### 4.9 `workflow/make_workflow.py`

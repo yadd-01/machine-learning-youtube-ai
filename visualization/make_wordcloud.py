@@ -40,6 +40,7 @@ FREQ_CSV = PROJECT_ROOT / "results" / "word_frequencies.csv"
 TOP20_CSV = PROJECT_ROOT / "results" / "top_20_words.csv"
 RESULTS_DIR = PROJECT_ROOT / "results"
 SUMMARY_PATH = RESULTS_DIR / "wordcloud_summary.txt"
+EXCLUDES_PATH = PROJECT_ROOT / "visualization" / "wordcloud_excludes.txt"
 
 # Tampilan tiap WordCloud: (judul, keterangan, colormap, warna latar).
 CLOUD_STYLE = {
@@ -118,9 +119,33 @@ def load_frequencies(path: Path = FREQ_CSV) -> pd.DataFrame:
     return df[df["word"].str.strip().ne("") & df["count"].gt(0)]
 
 
-def frequencies_for(df: pd.DataFrame, stage: str, min_count: int = MIN_CLOUD_COUNT) -> dict[str, int]:
+def frequencies_for(
+    df: pd.DataFrame,
+    stage: str,
+    min_count: int = MIN_CLOUD_COUNT,
+    excluded: set[str] | None = None,
+) -> dict[str, int]:
     subset = df[(df["stage"] == stage) & (df["count"] >= min_count)]
+    if excluded:
+        subset = subset[~subset["word"].str.lower().isin(excluded)]
     return dict(zip(subset["word"], subset["count"]))
+
+
+def load_excludes(path: Path = EXCLUDES_PATH) -> set[str]:
+    """Muat kata yang tidak ditampilkan pada WordCloud (satu kata per baris).
+
+    Filter ini hanya berlaku untuk gambar. Dataset dan tabel frekuensi tidak
+    diubah, sehingga hasil analisis tetap dapat diaudit.
+    """
+    if not path.exists():
+        return set()
+
+    excluded: set[str] = set()
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip().lower()
+        if line and not line.startswith("#"):
+            excluded.add(line)
+    return excluded
 
 
 def draw_wordcloud(
@@ -224,6 +249,7 @@ def main() -> int:
 
     try:
         frequencies = load_frequencies()
+        excluded = load_excludes()
     except (FileNotFoundError, ValueError) as error:
         logger.error("%s", error)
         return 1
@@ -242,11 +268,12 @@ def main() -> int:
     say(f"Input frekuensi : {FREQ_CSV.relative_to(PROJECT_ROOT)}")
     say(f"Font            : {Path(font_path).name if font_path else 'default WordCloud'}")
     say(f"Parameter       : maks {MAX_WORDS} kata, minimal {MIN_CLOUD_COUNT}x muncul, {CLOUD_WIDTH}x{CLOUD_HEIGHT} px")
+    say(f"Dikecualikan    : {', '.join(sorted(excluded)) if excluded else '-'} (hanya dari gambar)")
     say()
 
     outputs: list[tuple[str, Path, dict[str, int]]] = []
     for stage in stages:
-        freq = frequencies_for(frequencies, stage)
+        freq = frequencies_for(frequencies, stage, excluded=excluded)
         if not freq:
             logger.error("Tahap '%s' tidak punya kata dengan frekuensi >= %d.", stage, MIN_CLOUD_COUNT)
             return 1

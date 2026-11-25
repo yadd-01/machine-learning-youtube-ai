@@ -1,0 +1,5 @@
+# Kata yang tidak ditampilkan pada WordCloud.
+# Satu kata per baris. Baris berawalan '#' diabaikan.
+# Daftar ini HANYA memfilter gambar WordCloud; dataset dan tabel frekuensi
+# (results/word_frequencies.csv) tetap utuh agar hasil analisis dapat diaudit.
+allah

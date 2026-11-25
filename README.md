@@ -47,7 +47,8 @@ Dokumen acuan:
 │   ├── noise_analysis.py   # Phase 6: label noise + dataset noise_comments.csv
 │   └── word_frequency.py   # Phase 7: frekuensi kata per tahap
 ├── visualization/
-│   └── make_wordcloud.py   # Phase 7: 4 WordCloud + bar chart Top 20
+│   ├── make_wordcloud.py   # Phase 7: 4 WordCloud + bar chart Top 20
+│   └── wordcloud_excludes.txt  # kata yang disembunyikan dari WordCloud (editable)
 ├── workflow/
 │   ├── make_workflow.py    # Phase 8: diagram alur pipeline (PNG)
 │   └── workflow.png
@@ -243,6 +244,11 @@ python visualization/make_wordcloud.py
 
 Nama file sengaja `make_wordcloud.py`, bukan `wordcloud.py`, agar tidak menimpa
 library `wordcloud` saat proses impor.
+
+Kata yang tidak ingin ditampilkan pada WordCloud dapat ditambahkan ke
+`visualization/wordcloud_excludes.txt` (satu kata per baris). Daftar ini hanya
+memfilter gambar; dataset dan `results/word_frequencies.csv` tetap utuh agar
+hasil analisis dapat diaudit. Saat ini kata `allah` dikecualikan dari gambar.
 
 Workflow (Phase 8):
 
