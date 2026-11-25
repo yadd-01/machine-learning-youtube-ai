@@ -1,0 +1,69 @@
+======================================================================
+EDA DATASET MENTAH KOMENTAR YOUTUBE TENTANG AI
+======================================================================
+Sumber file            : dataset\raw_comments.csv
+Jumlah baris           : 3.000
+comment_id unik        : 3.000
+Komentar duplikat      : 0 (berdasarkan comment_id)
+Video unik             : 5
+Rentang tanggal        : 2022-09-14 s.d. 2026-11-23
+
+----------------------------------------------------------------------
+1. KELENGKAPAN DATA
+----------------------------------------------------------------------
+  video_id      : 0 kosong
+  comment_id    : 0 kosong
+  author        : 0 kosong
+  text          : 1 kosong
+  published_at  : 0 kosong
+  like_count    : 0 kosong
+  text duplikat : 26 (teks identik, beda comment_id)
+
+----------------------------------------------------------------------
+2. DISTRIBUSI PANJANG KOMENTAR
+----------------------------------------------------------------------
+  Karakter      : min 0 | Q1 34 | median 67 | mean 128.1 | Q3 144 | max 2399 | std 189.7 karakter
+  Kata          : min 0 | Q1 6 | median 11 | mean 20.3 | Q3 23 | max 333 | std 28.5 kata
+  Komentar < 10 karakter : 123
+  Komentar > 500 karakter: 113
+
+----------------------------------------------------------------------
+3. DISTRIBUSI PER VIDEO
+----------------------------------------------------------------------
+  Ewp4tgJG1sY |  992 komentar | rata 173 karakter / 27 kata | 2165 like
+  avUsTRL5XS0 |  711 komentar | rata 72 karakter / 12 kata | 2870 like
+  8Lz530r09WU |  530 komentar | rata 141 karakter / 23 kata | 2867 like
+  _FcHPrRY5zg |  430 komentar | rata 143 karakter / 22 kata | 3393 like
+  L1WaVEi7ePI |  337 komentar | rata 74 karakter / 12 kata | 1473 like
+
+----------------------------------------------------------------------
+4. INDIKASI NOISE (FR-14)
+----------------------------------------------------------------------
+  Mengandung URL          :    3 komentar (0.1%)
+  Mengandung mention (@)  :    6 komentar (0.2%)
+  Mengandung hashtag (#)  :    9 komentar (0.3%)
+  Mengandung emoji        :  694 komentar (23.1%)
+  Mengandung angka        :  671 komentar (22.4%)
+  Simbol berulang (3+)    :  310 komentar (10.3%)
+  Teks kosong             :    1 komentar (0.0%)
+  Sangat pendek (< 3 kata):  207 komentar (6.9%)
+  Teks duplikat           :   26 komentar (0.9%)
+  Catatan: kata informal TIDAK dihitung noise; penanganannya di tahap normalisasi.
+
+----------------------------------------------------------------------
+5. CONTOH KOMENTAR
+----------------------------------------------------------------------
+  Terpanjang:
+    - *Saudara-saudari semua yang hadir di sini..* Perlu diketahui, secanggih apapun AI-AGI-ASI pada masa yang akan datang dengan segala macam bentuk fisik/robotnya ...
+    - Mmm195 negara termasuk indonesia runtuh dan shutdown 4200 agama lenyap jika...    1.Gak adanya  media cetak dan elektronik/digital  Tidak adanya media cetak dan...
+  Terpendek (tidak kosong):
+    - 😮
+    - 🙏
+    - 😮
+  Acak:
+    - Di Amerika ada programer yang memilih jadi supir bus ketika dia kena badai PHK di China bertebaran tuh sarjana jadi ojol.
+    - Kl kita non aktivin aktivitas aplikasi di gemini kemampuannya otomatis turun. Padahal tujuan pembtsan aktivitas itu untik melindungi privasi user AI dr pemaanfa
+    - Ai adalah hal yang bermanfaat di orang yang tepat dan masalah di orang yang malas dan ingin hasil cepat.  Konten Ai slop, Buku 100% Generate Ai, Tanya segala ha
+
+Grafik distribusi disimpan di: results\eda_length_distribution.png
+======================================================================

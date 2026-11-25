@@ -1,0 +1,97 @@
+======================================================================
+TEXT PREPROCESSING (PHASE 5)
+======================================================================
+Input            : dataset\cleaned_comments.csv
+Jumlah komentar  : 2.935
+Kamus normalisasi: 126 entri
+Stopword         : 210 kata
+Kata terlindungi : 36 istilah
+Pengecualian stem: 89 kata
+
+----------------------------------------------------------------------
+1. STATISTIK PER TAHAP (FR-25)
+----------------------------------------------------------------------
+  Tahap                      Total token   Rata/komentar    Kosakata
+  Token awal                       59635            20.3        8997
+  Setelah normalisasi              59635            20.3        8884
+  Setelah stopword                 34308            11.7        8660
+  Setelah stemming                 33264            11.3        6652
+
+  Token yang diubah kamus normalisasi : 4527
+  Token dibuang (stopword/1 huruf)   : 25327
+  Token dibuang setelah stemming     : 1044
+  Cache stemming                     : 8666 kata lama + 1 kata baru
+
+  Komentar tanpa kata tersisa        : 20 (0.68%)
+  Catatan: komentar seperti ini tetap disimpan; noise analysis (Phase 6) yang menandainya.
+
+----------------------------------------------------------------------
+2. 10 KATA TERBANYAK SEBELUM vs SESUDAH STOPWORD REMOVAL
+----------------------------------------------------------------------
+  Sebelum                     Sesudah stemming      
+  ai (2230)                   ai (2230)             
+  yang (1707)                 manusia (781)         
+  dan (1114)                  pakai (262)           
+  di (851)                    kerja (224)           
+  tidak (836)                 tahu (174)            
+  bisa (782)                  belajar (165)         
+  manusia (764)               dunia (144)           
+  saya (729)                  bantu (139)           
+  itu (635)                   bahaya (133)          
+  buat (552)                  robot (129)           
+
+----------------------------------------------------------------------
+3. 20 KATA TERBANYAK HASIL AKHIR (bahan WordCloud Phase 7)
+----------------------------------------------------------------------
+   1. ai                2230
+   2. manusia           781
+   3. pakai             262
+   4. kerja             224
+   5. tahu              174
+   6. belajar           165
+   7. dunia             144
+   8. bantu             139
+   9. bahaya            133
+  10. robot             129
+  11. perkembangan      123
+  12. teknologi         123
+  13. benar             112
+  14. cari              104
+  15. mudah             102
+  16. pikir             102
+  17. data              101
+  18. baik              99
+  19. hidup             98
+  20. jual              91
+
+----------------------------------------------------------------------
+4. CONTOH PROSES PER TAHAP (FR-25)
+----------------------------------------------------------------------
+Contoh 1:
+  Token          : terlalu | banyak | informasi | di | kepala | sekarang | justru | seperti | orang | linglung | tanpa | arah | jalan | di | tempat
+  Normalisasi    : terlalu | banyak | informasi | di | kepala | sekarang | justru | seperti | orang | linglung | tanpa | arah | jalan | di | tempat
+  Tanpa stopword : informasi | kepala | linglung | arah | jalan | tempat
+  Stemming       : informasi | kepala | linglung | arah | jalan | tempat
+
+Contoh 2:
+  Token          : orang | nemu | tambang | emas | gak | bakal | teriak | teriak | kalau | ada | orang | bilang | ada | tambang | emas | berarti | tambang | emasnya ...
+  Normalisasi    : orang | temu | tambang | emas | tidak | akan | teriak | teriak | kalau | ada | orang | bilang | ada | tambang | emas | berarti | tambang | emasnya ...
+  Tanpa stopword : temu | tambang | emas | teriak | teriak | bilang | tambang | emas | berarti | tambang | emasnya
+  Stemming       : temu | tambang | emas | teriak | teriak | bilang | tambang | emas | arti | tambang | emas
+
+Contoh 3:
+  Token          : bahkan | menonton | dan | komen | disinipun | sudah | menjadi | bagian | dari | cari | jt | nya | raymond
+  Normalisasi    : bahkan | menonton | dan | komen | disinipun | sudah | menjadi | bagian | dari | cari | jt | nya | raymond
+  Tanpa stopword : menonton | komen | disinipun | bagian | cari | jt
+  Stemming       : tonton | komen | sini | bagian | cari | jt
+
+----------------------------------------------------------------------
+5. PEMERIKSAAN AKHIR
+----------------------------------------------------------------------
+  Sisa stopword        : 0
+  Sisa karakter aneh   : 0
+  Sisa kata tidak baku : 0 (muncul dari batang kata, mis. 'gaknya' -> 'gak')
+  Ukuran cache stemming: 8667 kata unik
+======================================================================
+Output disimpan di : dataset\preprocessed_comments.csv
+Kolom              : video_id, comment_id, author, text, published_at, like_count, text_cleaned, tokens, tokens_normalized, tokens_no_stopword, text_preprocessed

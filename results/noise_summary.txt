@@ -1,0 +1,74 @@
+======================================================================
+NOISE ANALYSIS (PHASE 6)
+======================================================================
+Input            : dataset\raw_comments.csv
+Total komentar   : 3.000
+Komentar noise   : 314 (10.5%)
+Komentar bersih  : 2.686 (89.5%)
+
+Catatan: label noise bersifat struktural. Kata informal seperti 'gak',
+'bgt', atau 'gue' TIDAK dianggap noise (FR-29).
+
+----------------------------------------------------------------------
+1. JUMLAH PER JENIS NOISE (FR-27)
+----------------------------------------------------------------------
+  Jenis noise                               Jumlah   % total
+  kosong setelah cleaning                       22      0.7%
+  duplikat teks                                 43      1.4%
+  tanpa kata informatif                         20      0.7%
+  terlalu pendek (<= 1 kata informatif)        175      5.8%
+  spam/promosi                                   0      0.0%
+  karakter berulang                             58      1.9%
+  kata berulang                                  1      0.0%
+  simbol berlebihan                             11      0.4%
+  Tidak ditemukan spam promosi pada dataset ini (indikasi data relatif bersih).
+  (Satu komentar bisa punya lebih dari satu label, jadi total > jumlah noise unik.)
+
+----------------------------------------------------------------------
+2. SEBELUM vs SESUDAH NOISE REMOVAL (FR-28)
+----------------------------------------------------------------------
+  Metrik                               Sebelum     Sesudah
+  Jumlah komentar                         3000        2686
+  Rata-rata kata mentah                   20.3        21.8
+  Total kata informatif                  33292       32338
+  Kosakata informatif                     6645        6451
+  Rata-rata kata informatif               11.1        12.0
+
+----------------------------------------------------------------------
+3. CONTOH NOISE PER JENIS
+----------------------------------------------------------------------
+  [kosong setelah cleaning] (22 komentar)
+    - 🔥🔥🔥
+    - 😮
+  [duplikat teks] (43 komentar)
+    - Menarik
+    - Keren
+  [tanpa kata informatif] (20 komentar)
+    - Belom😂
+    - V3
+  [terlalu pendek (<= 1 kata informatif)] (175 komentar)
+    - Thanks bgt ko raymond
+    - First min
+  [spam/promosi] (0 komentar)
+    (tidak ada)
+  [karakter berulang] (58 komentar)
+    - Mantaaaaaapppp...........
+    - siappp gampangggggggggggggggggg bgt yayayayayayayayya
+  [kata berulang] (1 komentar)
+    - Ini itu... Ini itu.... Ini itu... 🫢🤔
+  [simbol berlebihan] (11 komentar)
+    - Mantaaaaaapppp...........
+    - Wow❤❤❤
+
+----------------------------------------------------------------------
+4. INDIKATOR TAMBAHAN (tidak otomatis dianggap noise)
+----------------------------------------------------------------------
+  mengandung URL                 3 (0.1%)
+  mengandung mention             6 (0.2%)
+  mengandung hashtag             9 (0.3%)
+  mengandung emoji             694 (23.1%)
+  mengandung angka             671 (22.4%)
+  mayoritas kapital             51 (1.7%)
+======================================================================
+Dataset noise disimpan di: dataset\noise_comments.csv (314 baris)
+Dataset utama TIDAK diubah; label ini dipakai untuk analisis dan WordCloud noise.

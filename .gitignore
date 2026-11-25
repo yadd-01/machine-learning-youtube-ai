@@ -1,0 +1,26 @@
+# Kredensial - JANGAN pernah dikomit
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Log dan file sementara
+*.log
+*.tmp
+
+# Cache hasil stemming (dibuat otomatis, bukan bagian deliverable)
+preprocessing/stem_cache.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

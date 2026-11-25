@@ -1,0 +1,104 @@
+======================================================================
+VISUALISASI WORDCLOUD & TOP 20 KATA (PHASE 7)
+======================================================================
+Input frekuensi : results\word_frequencies.csv
+Font            : segoeui.ttf
+Parameter       : maks 200 kata, minimal 2x muncul, 2400x1500 px
+
+----------------------------------------------------------------------
+WORDCLOUD KOMENTAR MENTAH
+----------------------------------------------------------------------
+  Kata unik  : 3.968 (frekuensi >= 2)
+  Total kata : 54.644
+  File       : results\wordcloud_raw.png
+  10 teratas :
+     1. ai                2236
+     2. dan               1115
+     3. yang              1030
+     4. di                854
+     5. bisa              782
+     6. manusia           764
+     7. yg                685
+     8. itu               641
+     9. ini               544
+    10. untuk             455
+
+----------------------------------------------------------------------
+WORDCLOUD SETELAH CLEANING
+----------------------------------------------------------------------
+  Kata unik  : 3.947 (frekuensi >= 2)
+  Total kata : 54.286
+  File       : results\wordcloud_cleaned.png
+  10 teratas :
+     1. ai                2230
+     2. dan               1114
+     3. yang              1022
+     4. di                851
+     5. bisa              782
+     6. manusia           764
+     7. yg                685
+     8. itu               635
+     9. ini               543
+    10. untuk             453
+
+----------------------------------------------------------------------
+WORDCLOUD SETELAH PREPROCESSING
+----------------------------------------------------------------------
+  Kata unik  : 2.922 (frekuensi >= 2)
+  Total kata : 29.534
+  File       : results\wordcloud_preprocessed.png
+  10 teratas :
+     1. ai                2230
+     2. manusia           781
+     3. pakai             262
+     4. kerja             224
+     5. tahu              174
+     6. belajar           165
+     7. dunia             144
+     8. bantu             139
+     9. bahaya            133
+    10. robot             129
+
+----------------------------------------------------------------------
+WORDCLOUD KOMENTAR NOISE
+----------------------------------------------------------------------
+  Kata unik  : 253 (frekuensi >= 2)
+  Total kata : 809
+  File       : results\wordcloud_noise.png
+  10 teratas :
+     1. ai                39
+     2. manusia           14
+     3. indonesia         12
+     4. mantap            11
+     5. part              11
+     6. dunia             10
+     7. keren             10
+     8. itu               9
+     9. yang              9
+    10. bang              8
+
+----------------------------------------------------------------------
+BAR CHART TOP 20 KATA
+----------------------------------------------------------------------
+  File : results\top_20_words.png
+   1. ai                2230
+   2. manusia           781
+   3. pakai             262
+   4. kerja             224
+   5. tahu              174
+   6. belajar           165
+   7. dunia             144
+   8. bantu             139
+   9. bahaya            133
+  10. robot             129
+  11. perkembangan      123
+  12. teknologi         123
+  13. benar             112
+  14. cari              104
+  15. mudah             102
+  16. pikir             102
+  17. data              101
+  18. baik              99
+  19. hidup             98
+  20. jual              91
+======================================================================

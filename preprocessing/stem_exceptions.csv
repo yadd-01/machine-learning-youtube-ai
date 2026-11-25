@@ -1,0 +1,132 @@
+# Pengecualian stemming: kata yang TIDAK di-stem dan langsung dipetakan ke bentuk akhir.
+# Alasan: Sastrawi melebur kata yang maknanya berbeda, misalnya
+#   perusahaan -> usaha, setuju -> tuju, keputusan -> putus, kembang (bunga).
+# File ini boleh diedit manual (satu token -> satu token, tanpa spasi).
+# Baris diawali '#' diabaikan.
+kata,hasil
+
+# Perkembangan (Sastrawi menghasilkan "kembang" = bunga)
+perkembangan,perkembangan
+berkembang,perkembangan
+pengembangan,perkembangan
+mengembangkan,perkembangan
+perkembangannya,perkembangan
+pengembang,perkembangan
+kembangkan,perkembangan
+dikembangkan,perkembangan
+berkembangnya,perkembangan
+mengembangkannya,perkembangan
+kembangnya,perkembangan
+pengembangannya,perkembangan
+perkembanganku,perkembangan
+
+# Perusahaan vs usaha
+perusahaan,perusahaan
+perusahaannya,perusahaan
+pengusaha,pengusaha
+
+# Setuju vs tujuan
+setuju,setuju
+tujuan,tujuan
+tujuannya,tujuan
+bertujuan,tujuan
+menuju,menuju
+
+# Keluarga rasa: pengguna lebih jelas melihat bentuk aslinya
+# (terasa, merasa, rasakan) daripada semuanya dilebur menjadi "rasa".
+perasaan,perasaan
+rasakan,rasakan
+merasa,merasa
+merasakan,merasakan
+rasanya,rasanya
+berasa,berasa
+terasa,terasa
+dirasakan,dirasakan
+berperasaan,berperasaan
+
+# Kemampuan vs mampu
+kemampuan,kemampuan
+kemampuannya,kemampuan
+
+# Melakukan vs laku (laku = terjual)
+melakukan,melakukan
+melakukannya,melakukan
+dilakukan,melakukan
+lakukan,melakukan
+kelakuan,kelakuan
+berlaku,berlaku
+pelaku,pelaku
+diperlakukan,perlakukan
+
+# Keputusan vs putus
+keputusan,keputusan
+putusan,putusan
+memutuskan,memutuskan
+
+# Pengalaman vs alam
+pengalaman,pengalaman
+pengalamannya,pengalaman
+
+# Belajar/mengajar vs ajar
+pembelajaran,pembelajaran
+pelajarannya,pembelajaran
+pelajaran,pelajaran
+pelajar,pelajar
+pelajari,belajar
+mempelajari,belajar
+dipelajari,belajar
+belajarnya,belajar
+mengajar,mengajar
+mengajarkan,mengajar
+mengajari,mengajar
+ajarkan,mengajar
+ajari,mengajar
+diajarkan,mengajar
+ajaran,ajaran
+
+# Pengetahuan vs tahu
+pengetahuan,pengetahuan
+pengetahuannya,pengetahuan
+sepengetahuan,pengetahuan
+
+# Bagian vs bagi
+bagian,bagian
+sebagian,sebagian
+berbagi,berbagi
+membagikan,bagikan
+bagikan,bagikan
+terbagi,terbagi
+
+# Pendiri vs diri
+mendirikan,mendirikan
+pendiri,pendiri
+pendirinya,pendiri
+
+# Hasil
+berhasil,berhasil
+penghasilan,penghasilan
+
+# Menarik vs tarik
+menarik,menarik
+tertarik,tertarik
+menariknya,menarik
+
+# Bangunan vs bangun
+bangunan,bangunan
+pembangunan,pembangunan
+
+# Aturan vs atur
+peraturan,peraturan
+aturan,aturan
+teratur,teratur
+
+# Pertimbangan vs timbang
+pertimbangan,pertimbangan
+pertimbangkan,pertimbangkan
+dipertimbangkan,dipertimbangkan
+menimbang,menimbang
+
+# Lain-lain
+pakaian,pakaian
+mencemari,mencemari
+disinipun,sini

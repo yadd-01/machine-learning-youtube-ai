@@ -1,0 +1,75 @@
+======================================================================
+CLEANING DATA KOMENTAR (PHASE 4)
+======================================================================
+Input  : dataset\raw_comments.csv (3.000 baris)
+
+----------------------------------------------------------------------
+1. RINGKASAN PER LANGKAH (FR-16, FR-17, FR-18)
+----------------------------------------------------------------------
+  Langkah                       Teks berubah   Jadi kosong
+  Case folding                          2459             1
+  Hapus URL                                3             2
+  Hapus mention                            6             3
+  Hapus simbol hashtag                     9             3
+  Hapus emoji                            694            19
+  Hapus angka                            668            20
+  Hapus tanda baca & simbol             2334            22
+  Rapikan spasi                         1573            22
+
+----------------------------------------------------------------------
+2. PEMBERSIHAN BARIS (FR-18)
+----------------------------------------------------------------------
+  Baris awal                         : 3000
+  Dibuang karena kosong              : 22
+  Dibuang karena teks duplikat       : 43
+  Baris akhir                        : 2935
+  Persentase data dipertahankan      : 97.8%
+
+----------------------------------------------------------------------
+3. PERBANDINGAN SEBELUM vs SESUDAH (FR-19)
+----------------------------------------------------------------------
+  Metrik                       Sebelum     Sesudah
+  Jumlah komentar                 3000        2935
+  Rata-rata karakter             128.1       125.0
+  Rata-rata kata                  20.3        20.3
+  Komentar tanpa huruf               0           0
+
+----------------------------------------------------------------------
+4. PEMERIKSAAN AKHIR
+----------------------------------------------------------------------
+  Sisa URL        : 0
+  Sisa emoji      : 0
+  Sisa angka      : 0
+  Sisa simbol     : 0
+
+----------------------------------------------------------------------
+CONTOH SEBELUM vs SESUDAH CLEANING
+----------------------------------------------------------------------
+1. SEBELUM : AI hanyalah AI, dia tidak punya perasaan atau kesadaran selayaknya manusia. Maka, mustahil untuk AI melawan manusia, apalagi mengambil alih pemerintah
+   SESUDAH : ai hanyalah ai dia tidak punya perasaan atau kesadaran selayaknya manusia maka mustahil untuk ai melawan manusia apalagi mengambil alih pemerintahan d
+
+2. SEBELUM : Ai bikin bodoh sih 😂,bikin fungsi dari kepala berkurang 😂
+   SESUDAH : ai bikin bodoh sih bikin fungsi dari kepala berkurang
+
+3. SEBELUM : Us takut dgn China. That's it ..sebab tu Kene lestarikan AI...AI helps..sgt2 membantu ...
+   SESUDAH : us takut dgn china that s it sebab tu kene lestarikan ai ai helps sgt membantu
+
+4. SEBELUM : Mantap banget insgightnya
+   SESUDAH : mantap banget insgightnya
+
+5. SEBELUM : udah di lv 4, cuma masih kurang dalam bangun relasinya, circle gue masih pada miskin 😅
+   SESUDAH : udah di lv cuma masih kurang dalam bangun relasinya circle gue masih pada miskin
+
+6. SEBELUM : Bang nge fork nya ga dipikir
+   SESUDAH : bang nge fork nya ga dipikir
+
+7. SEBELUM : Saya fikir Ai akan nguasai perokonomian dunia,..dan itu sudah dipastikan terjadi Manusia ngga akan bisa membendung itu,..serangan AI akan terjadi dise
+   SESUDAH : saya fikir ai akan nguasai perokonomian dunia dan itu sudah dipastikan terjadi manusia ngga akan bisa membendung itu serangan ai akan terjadi diseluru
+
+8. SEBELUM : 100jutanya itu dari kalian yang pada nonton ini 😆😆🙂‍↕️😆
+   SESUDAH : jutanya itu dari kalian yang pada nonton ini
+
+----------------------------------------------------------------------
+Output disimpan di : dataset\cleaned_comments.csv
+Kolom              : video_id, comment_id, author, text, published_at, like_count, text_cleaned
+======================================================================

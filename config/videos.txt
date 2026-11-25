@@ -1,0 +1,27 @@
+# Daftar video YouTube yang akan di-scrape.
+# Satu URL atau Video ID per baris. Baris diawali '#' diabaikan.
+# Teks setelah tanda '#' juga diabaikan, jadi aman untuk menulis catatan.
+#
+# Video dipilih: berbahasa Indonesia, topik AI, channel besar (potensi komentar banyak).
+# Kolom catatan: channel - perkiraan view saat daftar ini dibuat.
+# Jika sebuah video ternyata menonaktifkan komentar, scraper akan melewatinya.
+
+# --- Raymond Chin (engagement tinggi) ---
+https://www.youtube.com/watch?v=8Lz530r09WU   # Tutorial Cari 100jt Dari AI untuk Pemula (1,7 jt view)
+https://www.youtube.com/watch?v=avUsTRL5XS0   # Bodoh AI ke Mahir Dalam 30 Menit Part 1 (1,4 jt view)
+https://www.youtube.com/watch?v=L1WaVEi7ePI   # 5 Tools AI Bikin Kerjaan 5x Lebih Cepet (994 rb view)
+https://www.youtube.com/watch?v=Ewp4tgJG1sY   # AI Akan Membunuh Manusia di 2030 (972 rb view)
+
+# --- Channel edukasi / populer ---
+https://www.youtube.com/watch?v=_FcHPrRY5zg   # Kok Bisa? - AI Sama Sekali Enggak Seperti yang Kalian Kira (806 rb view)
+https://www.youtube.com/watch?v=riJOtq_BYHY   # Josh Gultom - Gua Minta AI Terpintar Ramal 5 Tahun Ke Depan (796 rb view)
+https://www.youtube.com/watch?v=SrH4EW9GFh8   # Liputan6 - Curhat ke ChatGPT? (769 rb view)
+https://www.youtube.com/watch?v=me0Zrh69WgY   # Garry Audie - Kalo Gw Belajar AI dari Nol Lagi (274 rb view)
+https://www.youtube.com/watch?v=UYp32dGr5X8   # Kuliah Informatika - Mengenal Artificial Intelligence (280 rb view)
+https://www.youtube.com/watch?v=LWkYpNfOUGY   # Theo Derick - Hati-Hati Gak Belajar AI (295 rb view)
+
+# --- Cadangan (aktifkan jika total komentar belum mencapai target) ---
+# https://www.youtube.com/watch?v=H4Tu7IFaUIQ  # Freddie Kashawan - Belajar AI dari Nol (197 rb view)
+# https://www.youtube.com/watch?v=0sZ2YaOmiWs  # David Alfa Sunarna - Review GPT-6 (268 rb view)
+# https://www.youtube.com/watch?v=5ddRekXR2yI  # CNN Indonesia - Masa Depan AI Indonesia (27 rb view)
+# https://www.youtube.com/watch?v=HRwMxsXaNqc  # Langit Bertutur - Bahasa Indonesia Masa Depan AI (93 rb view)

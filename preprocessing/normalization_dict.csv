@@ -1,0 +1,135 @@
+# Kamus normalisasi kata tidak baku -> baku (Bahasa Indonesia).
+# File ini boleh diedit manual TANPA mengubah kode (FR-22).
+# Format: tidak_baku,baku,catatan  |  baris diawali '#' diabaikan.
+# Aturan:
+#   - Satu token dipetakan ke SATU token (tanpa spasi).
+#   - Kata yang tidak ada di kamus dibiarkan apa adanya.
+#   - Istilah teknis/Inggris (ai, chatgpt, llm, ...) tidak didaftarkan karena
+#     sudah dilindungi di PROTECTED_WORDS (preprocessing.py).
+tidak_baku,baku,catatan
+yg,yang,singkatan
+dgn,dengan,singkatan
+dg,dengan,singkatan
+utk,untuk,singkatan
+dr,dari,singkatan
+tp,tapi,singkatan
+krn,karena,singkatan
+krna,karena,singkatan
+karna,karena,singkatan
+kl,kalau,singkatan
+klo,kalau,gaul
+kalo,kalau,gaul
+klu,kalau,gaul
+klw,kalau,gaul
+jd,jadi,singkatan
+jdi,jadi,typo
+jg,juga,singkatan
+jga,juga,typo
+sdh,sudah,singkatan
+udh,sudah,gaul
+udah,sudah,gaul
+dah,sudah,gaul
+blm,belum,singkatan
+blom,belum,gaul
+belom,belum,gaul
+bkn,bukan,singkatan
+tdk,tidak,singkatan
+gak,tidak,gaul
+ga,tidak,gaul
+gk,tidak,gaul
+ngga,tidak,gaul
+engga,tidak,gaul
+enggak,tidak,gaul
+aja,saja,gaul
+doang,saja,gaul
+cuma,hanya,gaul
+cuman,hanya,gaul
+gitu,begitu,gaul
+bgtu,begitu,gaul
+gini,begini,gaul
+gni,begini,gaul
+sm,sama,singkatan
+org,orang,singkatan
+orng,orang,typo
+knp,kenapa,singkatan
+gmn,bagaimana,singkatan
+gimana,bagaimana,gaul
+gimna,bagaimana,typo
+emg,memang,singkatan
+emang,memang,gaul
+bgt,sangat,gaul
+bngt,sangat,typo
+banget,sangat,gaul
+pake,pakai,gaul
+tau,tahu,gaul
+kayak,seperti,gaul
+kyk,seperti,gaul
+kyak,seperti,typo
+biar,agar,gaul
+bikin,buat,gaul
+dapet,dapat,gaul
+dapetin,dapat,gaul
+nemu,temu,gaul
+nyari,cari,gaul
+ngelakuin,melakukan,gaul
+lakuin,lakukan,gaul
+gampang,mudah,gaul
+susah,sulit,gaul
+bener,benar,gaul
+pinter,pintar,gaul
+makin,semakin,gaul
+bakal,akan,gaul
+gw,saya,gaul
+gua,saya,gaul
+gue,saya,gaul
+gwe,saya,typo
+lu,kamu,gaul
+lo,kamu,gaul
+loe,kamu,gaul
+kmu,kamu,typo
+km,kamu,singkatan
+yaudah,sudah,gaul
+yowes,sudah,gaul
+tsb,tersebut,singkatan
+spt,seperti,singkatan
+bnyk,banyak,typo
+bnyak,banyak,typo
+byk,banyak,singkatan
+smua,semua,typo
+skrg,sekarang,singkatan
+skrng,sekarang,typo
+trs,terus,singkatan
+trus,terus,gaul
+dgr,dengar,singkatan
+liat,lihat,gaul
+diliat,dilihat,gaul
+cpt,cepat,singkatan
+cpet,cepat,typo
+skli,sekali,typo
+skali,sekali,typo
+pdhl,padahal,singkatan
+msh,masih,singkatan
+mslh,masalah,singkatan
+mlh,malah,singkatan
+bnr,benar,singkatan
+sngt,sangat,singkatan
+sgt,sangat,singkatan
+bgs,bagus,singkatan
+jgn,jangan,singkatan
+sy,saya,singkatan
+didunia,dunia,variasi penulisan
+kedepan,depan,variasi penulisan
+kedepannya,depan,variasi penulisan
+didepan,depan,variasi penulisan
+diatas,atas,variasi penulisan
+keatas,atas,variasi penulisan
+dimasa,masa,variasi penulisan
+kearah,arah,variasi penulisan
+disetiap,setiap,variasi penulisan
+diluar,luar,variasi penulisan
+sediri,sendiri,salah tulis
+serem,seram,tidak baku
+penjelasanya,penjelasannya,salah tulis
+perkerjaan,pekerjaan,salah tulis
+sebagi,sebagai,salah tulis
+kerasa,terasa,tidak baku
