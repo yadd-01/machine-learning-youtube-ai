@@ -180,7 +180,7 @@ def add_card(
             fontsize=8.2, family="monospace", color="#3b3b3b", zorder=5)
     ax.text(left, y + height - 0.163, output, ha="left", va="center",
             fontsize=8.2, color="#5a5a5a", zorder=5)
-    ax.text(left, y + 0.052, metric, ha="left", va="center",
+    ax.text(left, y + 0.062, metric, ha="left", va="center",
             fontsize=9.6, fontweight="bold", color=color, zorder=5)
     if "\n" in note:
         ax.text(left, y + 0.010, note, ha="left", va="bottom",
@@ -269,7 +269,7 @@ def main() -> int:
         script="preprocessing/preprocessing.py",
         output="dataset/preprocessed_comments.csv",
         metric=f"{metrics['tokens']} token • {metrics['vocab']} kosakata",
-        note=f"{metrics['dict']} kamus • {metrics['stopwords']} stopword • {metrics['exceptions']} pengecualian",
+        note=f"{metrics['dict']} kamus • {metrics['stopwords']} stopword\n{metrics['exceptions']} pengecualian stemming",
         color=COLORS["proses"],
     )
 
